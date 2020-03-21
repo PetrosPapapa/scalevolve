@@ -11,19 +11,19 @@ import scala.util.Random
 
 case class UniformCrossover[A](p: Float = 0.5f) extends Crossover[A] {
   override def gen(a: Individual[A], b: Individual[A]): Seq[Individual[A]] = {
-    val length = Math.min(a.chromosomes.length, b.chromosomes.length)
+    val length = Math.min(a.genes.length, b.genes.length)
     val l = new ArraySeq[A](length)
     val r = new ArraySeq[A](length)
     for (i <- 0 until length) {
       val rand = scala.util.Random.nextFloat()
       if (rand < p) {
-        l.update(i, b.chromosomes(i))
-        r.update(i, a.chromosomes(i))
+        l.update(i, b.genes(i))
+        r.update(i, a.genes(i))
       } else {
-        l.update(i, a.chromosomes(i))
-        r.update(i, b.chromosomes(i))
+        l.update(i, a.genes(i))
+        r.update(i, b.genes(i))
       }
     }
-    Seq( Individual(l), Individual(r) )
+    Seq( new Individual(l), new Individual(r) )
   }
 }

@@ -7,6 +7,16 @@ package uk.ac.ed.inf.ppapapan.scalevolve
 
 import scala.collection.mutable.ArraySeq
 
-case class Individual[A] (chromosomes: ArraySeq[A])
+class Individual[A] (val genes: ArraySeq[A]) {
+  def length: Int = genes.length
 
+  def copy: Individual[A] = Individual(genes: _*)
 
+  override def toString: String = 
+    s"[${genes.mkString(",")}]"
+}
+
+object Individual {
+  def apply[A](genes: A*) = 
+    new Individual(ArraySeq(genes: _*))
+}

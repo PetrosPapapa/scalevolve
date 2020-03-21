@@ -8,7 +8,9 @@ package uk.ac.ed.inf.ppapapan.scalevolve.crossover
 import org.scalatest.WordSpecLike
 import org.scalatest.Matchers
 import scala.collection.mutable.ArraySeq
+
 class CrossoverTests extends WordSpecLike with Matchers {
+
   "The PointCrossover Object" must {
     "no-point crossover ArraySeq's correctly" in {
       val l = ArraySeq(1,1,1,1)

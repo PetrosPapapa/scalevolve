@@ -11,8 +11,8 @@ import uk.ac.ed.inf.ppapapan.scalevolve.Individual
 
 case class PointCrossover[A](p: List[Int]) extends Crossover[A] {
   override def gen(a: Individual[A], b: Individual[A]): Seq[Individual[A]] = {
-    val (l,r) = PointCrossover.crossover(a.chromosomes, b.chromosomes, p)
-    Seq( Individual(l), Individual(r) )
+    val (l,r) = PointCrossover.crossover(a.genes, b.genes, p)
+    Seq( new Individual(l), new Individual(r) )
   }
 }
 
