@@ -9,8 +9,8 @@ import scala.collection.mutable.ArraySeq
 import scala.annotation.tailrec
 import uk.ac.ed.inf.ppapapan.scalevolve.Individual
 
-case class PointCrossover(p: List[Int]) extends Crossover {
-  override def gen[A](a: Individual[A], b: Individual[A]): Seq[Individual[A]] = {
+case class PointCrossover[A](p: List[Int]) extends Crossover[A] {
+  override def gen(a: Individual[A], b: Individual[A]): Seq[Individual[A]] = {
     val (l,r) = PointCrossover.crossover(a.chromosomes, b.chromosomes, p)
     Seq( Individual(l), Individual(r) )
   }
@@ -33,5 +33,5 @@ object PointCrossover {
     }
   }
 
-  def apply(p: Int*): PointCrossover = PointCrossover(p.toList)
+  def apply[A](p: Int*): PointCrossover[A] = PointCrossover[A](p.toList)
 }

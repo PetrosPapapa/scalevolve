@@ -9,8 +9,8 @@ import scala.collection.mutable.ArraySeq
 import uk.ac.ed.inf.ppapapan.scalevolve.Individual
 import scala.util.Random
 
-case class UniformCrossover(p: Float = 0.5f) extends Crossover {
-  override def gen[A](a: Individual[A], b: Individual[A]): Seq[Individual[A]] = {
+case class UniformCrossover[A](p: Float = 0.5f) extends Crossover[A] {
+  override def gen(a: Individual[A], b: Individual[A]): Seq[Individual[A]] = {
     val length = Math.min(a.chromosomes.length, b.chromosomes.length)
     val l = new ArraySeq[A](length)
     val r = new ArraySeq[A](length)

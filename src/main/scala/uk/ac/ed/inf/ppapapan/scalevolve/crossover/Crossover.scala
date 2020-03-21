@@ -7,6 +7,6 @@ package uk.ac.ed.inf.ppapapan.scalevolve.crossover
 
 import uk.ac.ed.inf.ppapapan.scalevolve.Individual
 
-trait Crossover {
-  def gen[A](a: Individual[A], b: Individual[A]): Seq[Individual[A]]
+trait Crossover[A] {
+  def gen(a: Individual[A], b: Individual[A]): Seq[Individual[A]]
 }
