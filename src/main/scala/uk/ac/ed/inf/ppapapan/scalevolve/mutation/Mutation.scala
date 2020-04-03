@@ -10,3 +10,4 @@ import uk.ac.ed.inf.ppapapan.scalevolve.Individual
 trait Mutation[A] {
   def mutate(a: Individual[A]): Individual[A]
 }
+
